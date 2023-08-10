@@ -2066,7 +2066,7 @@ struct qcom_glink *qcom_glink_native_probe(struct device *dev,
 	if (vm_support)
 		irqflags = IRQF_TRIGGER_RISING;
 	else
-		irqflags = IRQF_SHARED;
+		irqflags = IRQF_NO_SUSPEND | IRQF_SHARED;
 
 #ifndef OPLUS_FEATURE_MODEM_DATA_NWPOWER
 	ret = devm_request_irq(dev, irq,
